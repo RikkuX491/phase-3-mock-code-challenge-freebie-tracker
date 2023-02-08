@@ -18,4 +18,11 @@ puts "Creating freebies..."
 # ***************************************************************
 # Create freebies Here
 
+item_names = ["Water Bottle", "Sticker", "T-shirt", "Sweater", "Pen", "Beach Ball", "Drawstring Bag", "Coffee Cup"]
+values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+8.times do
+    Freebie.create(company_id: Company.all.sample.id, dev_id: Dev.all.sample.id, item_name: item_names.sample, value: values.sample)
+end
+
 puts "Seeding done!"
