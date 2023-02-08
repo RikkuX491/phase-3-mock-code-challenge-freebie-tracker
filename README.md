@@ -148,24 +148,25 @@ companies for the first dev in the database based on your seed data; and
 #### Freebie
 
 - `Freebie#print_details`
-  - should return a string formatted as follows:
+  - should `puts` to the terminal a string formatted as follows:
     `{insert dev's name} owns a {insert freebie's item_name} from {insert company's name}`
 
 #### Company
 
 - `Company#give_freebie(dev, item_name, value)`
-  - takes a `dev` (an instance of the `Dev` class), an `item_name` (string), and a `value`
-    as arguments, and creates a new `Freebie` instance associated with this
-    company and the given dev
-- `Company.oldest_company`
-  - returns the `Company` instance with the earliest founding year
+  - takes a `dev` (an instance of the `Dev` class), an `item_name` (string), and a `value` (integer)
+    as arguments, and creates a new `Freebie` in the database associated with this
+    company and the dev
+- `Company#print_all_freebie_details`
+  - should `puts` to the terminal a string representing each of the freebie's details for this company
+  - each of the freebie's details should be formatted as follows: `{insert dev's name} owns a {insert freebie's item_name} from {insert company's name}`
+- `Company#average_freebie_value`
+  - returns a `float` representing the average value for all freebies for this company
 
 #### Dev
 
-- `Dev#received_one?(item_name)`
-  - accepts an `item_name` (string) and returns true if any of the freebies
-    associated with the dev has that `item_name`, otherwise returns false
-- `Dev#give_away(dev, freebie)`
-  - accepts a `Dev` instance and a `Freebie` instance, changes the freebie's dev
-    to be the given dev; your code should only make the change if the freebie
-    belongs to the dev who's giving it away
+- `Dev#highest_freebie_value`
+  - returns the freebie instance that has the highest value from this dev
+- `Dev#remove_freebies(company)`
+  - takes a `Company` (an instance of the `Company` class) and removes _all_ of this dev's freebies for that company
+  - you will have to delete any rows from the `freebies` table associated with this dev and the company
